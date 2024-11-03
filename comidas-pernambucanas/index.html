@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhores Comidas Pernambucanas</title>
+    <link rel="icon" href="/image/logo-favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Melhores Comidas de Pernambuco</h1>
+        <nav>
+            <a href="index.html">Página Inicial</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <table>
+
+        <tr>
+            <th colspan="3"><h2>Imagens dos Produtos</h2></th>
+        </tr>
+        <tr>
+            <td><img class="foto-salgado1" src="/image/arrumadinho.jpeg" alt="" width="180" height="150"></td>
+            <td><img class="foto-salgado2" src="/image/buchada-de-bode.jpg" alt="" width="180" height="150"></td>
+            <td><img class="foto-salgado3" src="/image/chambaril.jpg" alt="" width="180" height="150"></td>
+            <td><img class="foto-salgado4" src="/image/Mão-de-Vaca.jpg" alt="" width="180" height="150"></td>
+            <td><img class="foto-sobremesa1" src="/image/bolo-de-rolo.jfif" alt="" width="180" height="150"></td>
+            <td><img class="foto-sobremesa2" src="/image/bolo-souza-leão.jpg" alt="" width="180" height="150"></td>
+            <td><img class="foto-sobremesa3" src="/image/cartola-de-banana.webp" alt="" width="180" height="150"></td>            
+        </tr>
+
+    </table>
+
+    <main>
+        <section id="pedido-section">
+            <h2>Faça Seu Pedido:</h2>
+        
+            <fieldset id="cadastro-cliente">
+                <legend>Dados para Envio do Pedido</legend>
+                <label for="cliente-nome">Nome:</label>
+                <input type="text" id="cliente-nome" required><br>
+                <label for="cliente-endereco">Endereço:</label>
+                <input type="text" id="cliente-endereco" required><br>
+                <label for="cliente-cidade">Cidade:</label>
+                <input type="text" id="cliente-cidade" required><br>
+                <label for="cliente-contato">Telefone:</label>
+                <input type="tel" id="cliente-contato" required><br>
+            </fieldset>
+        
+            <fieldset id="cadastro-pedido">
+                <legend>Seleção de Produtos</legend>
+        
+                <h3>Pratos Salgados</h3>
+                <select id="lista-salgados">
+                    <option value="" data-preco="0">Escolha um prato</option>
+                    <option value="Arrumadinho" data-preco="20.00">Arrumadinho - R$20,00</option>
+                    <option value="Buchada de bode" data-preco="25.00">Buchada de bode - R$25,00</option>
+                    <option value="Chambaril" data-preco="23.00">Chambaril - R$23,00</option>
+                    <option value="Mão de Vaca" data-preco="25.00">Mão de Vaca - R$25,00</option>
+                </select>
+                <button onclick="adicionarProduto('salgado')">Adicionar Prato Salgado</button>
+        
+                <h3>Sobremesas</h3>
+                <select id="lista-sobremesas">
+                    <option value="" data-preco="0">Escolha uma sobremesa</option>
+                    <option value="Bolo de rolo" data-preco="15.00">Bolo de rolo - R$15,00</option>
+                    <option value="Bolo Souza Leão" data-preco="15.00">Bolo Souza Leão - R$15,00</option>
+                    <option value="Cartola" data-preco="12.00">Cartola - R$12,00</option>
+                </select>
+                <button onclick="adicionarProduto('sobremesa')">Adicionar Sobremesa</button>
+        
+                <h3>Bebidas</h3>
+                <select id="lista-bebidas">
+                    <option value="" data-preco="0">Escolha uma bebida</option>
+                    <option value="Água mineral" data-preco="3.00">Água mineral - R$3,00</option>
+                    <option value="Caldo de Cana" data-preco="3.00">Caldo de Cana - R$3,00</option>
+                    <option value="Refrigerante" data-preco="8.00">Refrigerante - R$8,00</option>
+                    <option value="Suco natural" data-preco="7.00">Suco natural - R$7,00</option>
+                </select>
+                <button onclick="adicionarProduto('bebida')">Adicionar Bebida</button>
+            </fieldset>
+
+        <button onclick="adicionarTodos()">Adicionar Todos os Selecionados</button>
+        <button onclick="removerTodos()">Remover Todos</button>
+        </section>
+        
+        <section id="lista-produtos">
+            <h3>Lista de Produtos Selecionados</h3>
+            <ul id="produtos"></ul>
+            <p id="total">Total: R$0,00</p>
+        </section>
+
+        <section id="resumo-pedido" style="display: none;">
+            <h2>Resumo do Pedido</h2>
+            <div id="dados-cliente">
+                <h3>Dados do Cliente</h3>
+                <p id="cliente-nome-exibido"></p>
+                <p id="cliente-endereco-exibido"></p>
+                <p id="cliente-cidade-exibido"></p>
+                <p id="cliente-contato-exibido"></p>
+            </div>
+            <div id="detalhes-pedido">
+                <h3>Detalhes do Pedido</h3>
+                <ul id="produtos-resumo"></ul>
+                <p id="total-resumo"></p>
+            </div>
+        </section>
+        <button onclick="finalizarPedido()">Finalizar Pedido</button>
+
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
